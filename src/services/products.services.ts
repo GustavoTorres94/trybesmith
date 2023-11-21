@@ -1,5 +1,5 @@
 import ProductModel from '../database/models/product.model';
-import { ProductxablauType, ProductInsertType } from '../types/Product';
+import { ProductxablauType, ProductInsertType, Product } from '../types/Product';
 
 const validateInsertProduct = async (product: ProductxablauType)
 : Promise<{ data: ProductInsertType }> => {
@@ -9,6 +9,13 @@ const validateInsertProduct = async (product: ProductxablauType)
   return { data: { id, name, price } };
 };
 
+const validateGetAllProducts = async () : Promise<{ data: Product[] }> => {
+  const products = await ProductModel.findAll();
+  const filteredProducts = products.map((product) => product.dataValues);
+  return { data: filteredProducts };
+};
+
 export default {
   validateInsertProduct,
+  validateGetAllProducts,
 };

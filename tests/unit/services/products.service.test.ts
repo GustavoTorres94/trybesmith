@@ -4,7 +4,6 @@ import sinonChai from 'sinon-chai';
 import chai from 'chai';
 import productsServices from '../../../src/services/products.services';
 import ProductModel from '../../../src/database/models/product.model';
-import e from 'express';
 
 chai.use(sinonChai);
 
