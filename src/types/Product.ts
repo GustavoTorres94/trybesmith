@@ -1,6 +1,18 @@
 export type Product = {
-  id: 'fake';
-  name: 'fake';
-  price: 'fake';
-  orderId: 'fake';
+  id: number;
+  name: string;
+  price: string;
+  orderId: number;
+};
+
+export type ProductxablauType = {
+  name: string;
+  price: string;
+  orderId: number;
+};
+
+export type ProductInsertType = {
+  id: number;
+  name: string;
+  price: string;
 };
