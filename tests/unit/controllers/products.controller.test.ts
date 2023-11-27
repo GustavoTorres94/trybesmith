@@ -4,7 +4,7 @@ import sinonChai from 'sinon-chai';
 import { Request, Response } from 'express';
 import productsService from '../../../src/services/products.services';
 import produtsController from '../../../src/controller/products.controller';
-import { validBodyFunctionReturn } from '../../mocks/products.mock';
+import { validBodyFunctionReturn, validBodyFunctionReturnGetAll } from '../../mocks/products.mock';
 
 chai.use(sinonChai);
 
@@ -25,7 +25,6 @@ describe(' testing ProductsController', function () {
       price: 100,
       orderId: 1,
     };
-
     const req = {
       body: product,
     } as Request;
@@ -36,5 +35,14 @@ describe(' testing ProductsController', function () {
 
     expect(res.status).to.have.been.calledWith(201);
     expect(res.json).to.have.been.calledWith(validBodyFunctionReturn);
+  });
+
+  it('testing if getAllProducts is working properly', async function () {
+    sinon.stub(productsService, 'validateGetAllProducts').resolves({ data: validBodyFunctionReturnGetAll });
+
+    await produtsController.getAllProducts(req, res);
+
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith(validBodyFunctionReturnGetAll);
   });
 });
