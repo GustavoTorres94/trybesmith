@@ -6,8 +6,8 @@ import loginRoute from './routes/login.route';
 const app = express();
 
 app.use(express.json());
-app.use(productsRoute);
-app.use(ordersRoute);
+app.use('/products', productsRoute);
+app.use('/orders', ordersRoute);
 app.use('/login', loginRoute);
 
 export default app;
