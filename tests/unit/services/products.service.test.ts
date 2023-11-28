@@ -4,8 +4,8 @@ import sinonChai from 'sinon-chai';
 import chai from 'chai';
 import productsServices from '../../../src/services/products.services';
 import ProductModel from '../../../src/database/models/product.model';
-// import { validBodyFunctionReturnGetAll } from '../../mocks/products.mock';
-// import { Product } from '../../../src/types/Product';
+import { Product } from '../../../src/types/Product';
+import { validBodyFunctionReturnGetAll } from '../../mocks/products.mock';
 
 chai.use(sinonChai);
 
@@ -32,40 +32,8 @@ describe('testing ProductsService', function () {
     expect(data.name).to.be.equal('xablau');
   });
 
-  // it('testing validateGetAllProducts is working properly', async function () {
-  //   const teste: Product[] = [
-  //     {
-  //       id: 1,
-  //       name: 'xablau',
-  //       price: '100',
-  //       orderId: 4,
-  //     },
-  //     {
-  //       id: 2,
-  //       name: 'xablau',
-  //       price: '100',
-  //       orderId: 4,
-  //     },
-  //     {
-  //       id: 3,
-  //       name: 'xablau',
-  //       price: '100',
-  //       orderId: 4,
-  //     },
-  //     {
-  //       id: 4,
-  //       name: 'xablau',
-  //       price: '100',
-  //       orderId: 4,
-  //     },
-  //     {
-  //       id: 5,
-  //       name: 'xablau',
-  //       price: '100',
-  //       orderId: 4,
-  //     },
-  //   ];
-  //   const building = ProductModel.build(teste);
+  // it.only('testing validateGetAllProducts is working properly', async function () {
+  //   const building = ProductModel.build(validBodyFunctionReturnGetAll);
   //   sinon.stub(ProductModel, 'findAll').resolves(building);
   //   const { data } = await productsServices.validateGetAllProducts();
   //   expect(data).to.be.an('array');
