@@ -8,6 +8,6 @@ const app = express();
 app.use(express.json());
 app.use(productsRoute);
 app.use(ordersRoute);
-app.use(loginRoute);
+app.use('/login', loginRoute);
 
 export default app;

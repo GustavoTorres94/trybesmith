@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import loginController from '../controller/login.controller';
-import verifyToken from '../middlewares/authToken';
+// import verifyToken from '../middlewares/authToken';
 
 const loginRoute = Router();
 
-loginRoute.post('/login', verifyToken, loginController.login);
+loginRoute.post('/', loginController.login);
 
 export default loginRoute;
