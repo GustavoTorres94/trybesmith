@@ -33,4 +33,5 @@ const validateLogin = async (username: string, password: string)
 
 export default {
   validateLogin,
+  payloadToken,
 };

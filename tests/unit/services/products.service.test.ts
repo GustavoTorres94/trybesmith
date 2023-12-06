@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import chai from 'chai';
 import productsServices from '../../../src/services/products.services';
-import ProductModel from '../../../src/database/models/product.model';
+import ProductModel, { ProductInputtableTypes } from '../../../src/database/models/product.model';
 import { Product } from '../../../src/types/Product';
 import { validBodyFunctionReturnGetAll } from '../../mocks/products.mock';
 
@@ -32,13 +32,10 @@ describe('testing ProductsService', function () {
     expect(data.name).to.be.equal('xablau');
   });
 
-  // it.only('testing validateGetAllProducts is working properly', async function () {
-  //   const building = ProductModel.build(validBodyFunctionReturnGetAll);
-  //   sinon.stub(ProductModel, 'findAll').resolves(building);
-  //   const { data } = await productsServices.validateGetAllProducts();
-  //   expect(data).to.be.an('array');
-  //   expect(data[0]).to.have.keys('id', 'name', 'price', 'orderId');
-  //   expect(data[0].id).to.be.equal(1);
-  //   expect(data[0].name).to.be.equal('xablau');
-  // });
+  it('testing validateGetAllProducts is working properly', async function () {
+    const { data } = await productsServices.validateGetAllProducts();
+    expect(data).to.be.an('array');
+    expect(data[0]).to.have.keys('id', 'name', 'price', 'orderId');
+    expect(data[0].id).to.be.equal(1);
+  });
 });

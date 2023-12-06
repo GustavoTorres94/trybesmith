@@ -16,3 +16,10 @@ export type ProductInsertType = {
   name: string;
   price: string;
 };
+
+export type ProductGetAllType = {
+  id?: number;
+  name: string;
+  price: string;
+  orderId: number;
+};

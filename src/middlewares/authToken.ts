@@ -1,14 +1,23 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+import { ErrorOrderProduct } from '../types/Errors';
 
-const SECRET_KEY = process.env.JWT_SECRET;
+const SECRET_KEY = process.env.JWT_SECRET || 'secret';
 
-const veryfyToken = (req: Request, res: Response, next: NextFunction): void => {
+const veryfyToken = (req: Request, res: Response, next: NextFunction)
+: ErrorOrderProduct | unknown => {
   const { authorization }: any = req.headers;
-  const token = authorization;
-  const decoded = jwt.verify(token, SECRET_KEY as string);
-  console.log('DECODED', decoded);
-  next();
+  try {
+    if (!authorization) {
+      return res.status(401).json({ message: 'Token não encontrado' });
+    }
+    const token = authorization;
+    const decoded = jwt.verify(token, SECRET_KEY);
+    req.body.decoded = decoded;
+    next();
+  } catch (err: any) { 
+    return { status: 401, data: { message: err.message } };
+  }
 };
 
 export default veryfyToken;

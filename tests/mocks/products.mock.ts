@@ -1,4 +1,4 @@
-import { ProductxablauType, ProductInsertType, Product } from '../../src/types/Product';
+import { ProductxablauType, ProductInsertType, Product, ProductGetAllType } from '../../src/types/Product';
 
 export const validBodyFunction: ProductxablauType = {
   name: 'xablau',
@@ -39,6 +39,34 @@ export const validBodyFunctionReturnGetAll: Product[] = [
   },
   {
     id: 5,
+    name: 'xablau',
+    price: '100',
+    orderId: 4,
+  },
+];
+
+export const insertGetAll: ProductxablauType[] = [
+  {
+    name: 'xablau',
+    price: '100',
+    orderId: 4,
+  },
+  {
+    name: 'xablau',
+    price: '100',
+    orderId: 4,
+  },
+  {
+    name: 'xablau',
+    price: '100',
+    orderId: 4,
+  },
+  {
+    name: 'xablau',
+    price: '100',
+    orderId: 4,
+  },
+  {
     name: 'xablau',
     price: '100',
     orderId: 4,

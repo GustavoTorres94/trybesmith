@@ -4,6 +4,7 @@ import { Login } from '../types/Login';
 
 const login = async (req: Request, res: Response) : Promise<Response | void> => {
   const { username, password }: Login = req.body;
+  console.log('CONTROLLER', username, password);
   const { status, data } = await loginServices.validateLogin(username, password);
   console.log('DATA', data);
   if (status === 200) {

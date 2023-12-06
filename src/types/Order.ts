@@ -9,3 +9,13 @@ export type OrderProduct = {
   userId: number;
   productIds: number[];
 };
+
+export type OrderResponse = {
+  userId: number;
+  productIds: number[];
+};
+
+export type OrderProductResponse = {
+  status: number;
+  data: OrderResponse | { message: string };
+};

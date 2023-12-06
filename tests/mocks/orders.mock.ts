@@ -1,4 +1,4 @@
-import { OrderProduct } from '../../src/types/Order';
+import { OrderProduct, OrderResponse } from '../../src/types/Order';
 
 export const ordersMockResponseAll: OrderProduct[] = [
   {
@@ -25,3 +25,11 @@ export const ordersMockResponseAll: OrderProduct[] = [
     ]
   }
 ];
+
+export const ordersMockResponse: OrderResponse = {
+  "userId": 1,
+  "productIds": [
+    1,
+    2
+  ]
+};
