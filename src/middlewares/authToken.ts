@@ -9,14 +9,15 @@ const veryfyToken = (req: Request, res: Response, next: NextFunction)
   const { authorization }: any = req.headers;
   try {
     if (!authorization) {
-      return res.status(401).json({ message: 'Token não encontrado' });
+      return res.status(401).json({ message: 'Token not found' });
     }
     const token = authorization;
+
     const decoded = jwt.verify(token, SECRET_KEY);
     req.body.decoded = decoded;
     next();
   } catch (err: any) { 
-    return { status: 401, data: { message: err.message } };
+    return res.status(401).json({ message: 'Invalid token' });
   }
 };
 

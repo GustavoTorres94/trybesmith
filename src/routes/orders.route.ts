@@ -7,6 +7,6 @@ import verifyUserId from '../middlewares/userIdVerify';
 const ordersRoute = Router();
 
 ordersRoute.get('/', ordersController.getAllOrders);
-ordersRoute.post('/', veryfyToken, verifyProducts, verifyUserId, ordersController.createOrder);
+ordersRoute.post('/', veryfyToken, verifyUserId, verifyProducts, ordersController.createOrder);
 
 export default ordersRoute;

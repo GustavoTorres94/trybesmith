@@ -60,6 +60,7 @@ describe('testing OrdersService funcs', function () {
     sinon.stub(OrderModel, 'create').resolves(buildingOrder);
     sinon.stub(ProductModel, 'update').resolves();
     const { status, data } = await ordersService.validateCreateOrder(id, productIds, userId);
+    console.log(data, status);
     expect(status).to.be.equal(201);
     expect(data).to.be.deep.equal({ userId, productIds });
   });    
