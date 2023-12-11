@@ -8,7 +8,7 @@ const verifyProducts = (req: Request, res: Response, next: NextFunction) => {
   if (!Array.isArray(productIds)) {
     return res.status(422).json({ message: '"productIds" must be an array' });
   }
-  if (!productIds.every((id) => typeof id === 'number')) {
+  if (!productIds.every((id) => typeof id === 'number') || productIds.length === 0) {
     return res.status(422).json({ message: '"productIds" must include only numbers' });
   }
   next();
