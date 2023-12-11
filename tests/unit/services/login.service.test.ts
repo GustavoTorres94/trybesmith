@@ -4,7 +4,8 @@ import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import loginService from '../../../src/services/login.services';
 import UserModel from '../../../src/database/models/user.model';
-import { Login } from '../../../src/types/Login';
+import { Login, Payload } from '../../../src/types/Login';
+import { User } from '../../../src/types/User';
 
 chai.use(sinonChai);
 
@@ -27,13 +28,10 @@ describe('LoginService', function () {
     const token = loginService.payloadToken(payload);
     expect(token).to.be.a('string');
   });
-  // it.only('should return a 200 status when username and password are valid', async function () {
-  //   const user: Login = { username: 'Hagar', password: 'terrivel' };
-  //   UserModel.build(user);
-  //   const { status, data } = await loginService.validateLogin('Hagar', 'terrivel');
-  //   expect(status).to.be.equal(200);
-  //   expect(data).to.be.a('object');
-  //   expect(data).to.have.property('token');
-  // });
-    
+  
+  it('testing if payloadToken is working', async function () {
+    const payload = { id: 1, username: 'xablau' };
+    const token = loginService.payloadToken(payload);
+    expect(token).to.be.a('string');
+  });
 });
