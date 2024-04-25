@@ -73,7 +73,7 @@ describe('tsting', function () {
     } as Request;
     sinon.stub(loginServices, 'validateLogin').resolves({ status: 401, data: { message: 'Username or password invalid' } });
 
-    const result = await loginController.login(req, res);
+    await loginController.login(req, res);
 
     expect(res.status).to.have.been.calledWith(401);
     expect(res.json).to.have.been.calledWith({ message: 'Username or password invalid' });
